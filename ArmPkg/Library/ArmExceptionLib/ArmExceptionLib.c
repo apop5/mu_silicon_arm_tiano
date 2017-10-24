@@ -65,6 +65,7 @@ InitializeCpuExceptionHandlers (
 {
   UINT64  VectorBase;
 
+    VectorBase = PcdGet64 (PcdCpuVectorBaseAddress);
   // use VBAR to point to where our exception handlers are
 
   // The vector table must be aligned for the architecture.  If this
@@ -83,6 +84,7 @@ InitializeCpuExceptionHandlers (
   ArchVectorConfig ((UINTN)VectorBase);
 
   ArmWriteVBar ((UINTN)VectorBase);
+  CopyMem ((VOID *)VectorBase, (VOID *)ExceptionHandlersStart, Length);
 
   return RETURN_SUCCESS;
 }
