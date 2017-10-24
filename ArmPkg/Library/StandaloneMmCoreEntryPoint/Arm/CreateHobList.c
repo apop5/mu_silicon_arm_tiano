@@ -73,7 +73,7 @@ CreateHobListFromBootInfo (
   // Create a hoblist with a PHIT and EOH
   HobStart = HobConstructor (
                (VOID *)(UINTN)PayloadBootInfo->SpMemBase,
-               (UINTN)PayloadBootInfo->SpMemLimit - PayloadBootInfo->SpMemBase,
+               (UINTN)(PayloadBootInfo->SpMemLimit - PayloadBootInfo->SpMemBase),
                (VOID *)(UINTN)PayloadBootInfo->SpHeapBase,
                (VOID *)(UINTN)(PayloadBootInfo->SpHeapBase + PayloadBootInfo->SpHeapSize)
                );

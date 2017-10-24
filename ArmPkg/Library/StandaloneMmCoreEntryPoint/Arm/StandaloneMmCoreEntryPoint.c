@@ -186,22 +186,22 @@ DelegatedEventLoop (
 
     switch (Status) {
       case EFI_SUCCESS:
-        SvcStatus = ARM_SVC_SPM_RET_SUCCESS;
+        SvcStatus = (UINTN)ARM_SVC_SPM_RET_SUCCESS;
         break;
       case EFI_INVALID_PARAMETER:
-        SvcStatus = ARM_SVC_SPM_RET_INVALID_PARAMS;
+        SvcStatus = (UINTN)ARM_SVC_SPM_RET_INVALID_PARAMS;
         break;
       case EFI_ACCESS_DENIED:
-        SvcStatus = ARM_SVC_SPM_RET_DENIED;
+        SvcStatus = (UINTN)ARM_SVC_SPM_RET_DENIED;
         break;
       case EFI_OUT_OF_RESOURCES:
-        SvcStatus = ARM_SVC_SPM_RET_NO_MEMORY;
+        SvcStatus = (UINTN)ARM_SVC_SPM_RET_NO_MEMORY;
         break;
       case EFI_UNSUPPORTED:
-        SvcStatus = ARM_SVC_SPM_RET_NOT_SUPPORTED;
+        SvcStatus = (UINTN)ARM_SVC_SPM_RET_NOT_SUPPORTED;
         break;
       default:
-        SvcStatus = ARM_SVC_SPM_RET_NOT_SUPPORTED;
+        SvcStatus = (UINTN)ARM_SVC_SPM_RET_NOT_SUPPORTED;
         break;
     }
 
@@ -242,17 +242,17 @@ GetSpmVersion (
     SpmVersionArgs.Arg0  = ARM_SVC_ID_FFA_VERSION_AARCH32;
     SpmVersionArgs.Arg1  = mSpmMajorVerFfa << SPM_MAJOR_VER_SHIFT;
     SpmVersionArgs.Arg1 |= mSpmMinorVerFfa;
-    CallerSpmMajorVer    = mSpmMajorVerFfa;
-    CallerSpmMinorVer    = mSpmMinorVerFfa;
+    CallerSpmMajorVer    = (UINT16)mSpmMajorVerFfa;
+    CallerSpmMinorVer    = (UINT16)mSpmMinorVerFfa;
   } else {
     SpmVersionArgs.Arg0 = ARM_SVC_ID_SPM_VERSION_AARCH32;
-    CallerSpmMajorVer   = mSpmMajorVer;
-    CallerSpmMinorVer   = mSpmMinorVer;
+    CallerSpmMajorVer   = (UINT16)mSpmMajorVer;
+    CallerSpmMinorVer   = (UINT16)mSpmMinorVer;
   }
 
   ArmCallSvc (&SpmVersionArgs);
 
-  SpmVersion = SpmVersionArgs.Arg0;
+  SpmVersion = (UINT32)SpmVersionArgs.Arg0;
   if (SpmVersion == FFA_NOT_SUPPORTED) {
     return EFI_UNSUPPORTED;
   }

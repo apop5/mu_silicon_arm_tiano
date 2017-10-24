@@ -69,13 +69,13 @@ SendMemoryPermissionRequest (
       // Now check the payload for errors
       // The callee sends back the return value
       // in Arg3
-      *RetVal = SvcArgs->Arg3;
+      *RetVal = (INT32)SvcArgs->Arg3; // MU_CHANGE
     } else {
       // If Arg0 is not a Direct Response, that means we
       // have an FF-A error. We need to check Arg2 for the
       // FF-A error code.
       // See [2], Table 10.8: FFA_ERROR encoding.
-      *RetVal = SvcArgs->Arg2;
+      *RetVal = (INT32)SvcArgs->Arg2;
       switch (*RetVal) {
         case ARM_FFA_SPM_RET_INVALID_PARAMETERS:
           return EFI_INVALID_PARAMETER;
@@ -99,7 +99,7 @@ SendMemoryPermissionRequest (
       }
     }
   } else {
-    *RetVal = SvcArgs->Arg0;
+    *RetVal = (INT32)SvcArgs->Arg0;
   }
 
   // Check error response from Callee.
@@ -170,10 +170,10 @@ GetMemoryPermissions (
     SvcArgs.Arg1 = ARM_FFA_DESTINATION_ENDPOINT_ID;
     SvcArgs.Arg2 = 0;
     SvcArgs.Arg3 = ARM_SVC_ID_SP_GET_MEM_ATTRIBUTES;
-    SvcArgs.Arg4 = BaseAddress;
+    SvcArgs.Arg4 = (UINTN)BaseAddress; // MU_CHANGE
   } else {
     SvcArgs.Arg0 = ARM_SVC_ID_SP_GET_MEM_ATTRIBUTES;
-    SvcArgs.Arg1 = BaseAddress;
+    SvcArgs.Arg1 = (UINTN)BaseAddress; // MU_CHANGE
     SvcArgs.Arg2 = 0;
     SvcArgs.Arg3 = 0;
   }
@@ -225,13 +225,13 @@ RequestMemoryPermissionChange (
     SvcArgs.Arg1 = ARM_FFA_DESTINATION_ENDPOINT_ID;
     SvcArgs.Arg2 = 0;
     SvcArgs.Arg3 = ARM_SVC_ID_SP_SET_MEM_ATTRIBUTES;
-    SvcArgs.Arg4 = BaseAddress;
-    SvcArgs.Arg5 = EFI_SIZE_TO_PAGES (Length);
+    SvcArgs.Arg4 = (UINTN)BaseAddress; // MU_CHANGE
+    SvcArgs.Arg5 = (UINTN)EFI_SIZE_TO_PAGES (Length);
     SvcArgs.Arg6 = Permissions;
   } else {
     SvcArgs.Arg0 = ARM_SVC_ID_SP_SET_MEM_ATTRIBUTES;
-    SvcArgs.Arg1 = BaseAddress;
-    SvcArgs.Arg2 = EFI_SIZE_TO_PAGES (Length);
+    SvcArgs.Arg1 = (UINTN)BaseAddress; // MU_CHANGE
+    SvcArgs.Arg2 = (UINTN)EFI_SIZE_TO_PAGES (Length);
     SvcArgs.Arg3 = Permissions;
   }
 
