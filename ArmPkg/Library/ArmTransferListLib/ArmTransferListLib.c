@@ -189,7 +189,7 @@ TransferListGetNextEntry (
     CurrentAddr = (UINTN)TransferListHeader + TransferListHeader->HeaderSize;
   }
 
-  CurrentAddr = ALIGN_VALUE (CurrentAddr, (1 << TransferListHeader->Alignment));
+  CurrentAddr = ALIGN_VALUE (CurrentAddr, LShiftU64 (1, TransferListHeader->Alignment)); // MU_CHANGE - Use LShift instead of <<
 
   Entry = (TRANSFER_ENTRY_HEADER *)CurrentAddr;
 
