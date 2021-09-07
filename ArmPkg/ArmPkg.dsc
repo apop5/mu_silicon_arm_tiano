@@ -161,3 +161,4 @@
 
 [Components.AARCH64, Components.ARM]
   ArmPkg/Library/StandaloneMmMmuLib/ArmMmuStandaloneMmLib.inf
+  ArmPkg/Drivers/StandaloneMmCpu/StandaloneMmCpu.inf # MU_CHANGE - Add StandaloneMmCpu
