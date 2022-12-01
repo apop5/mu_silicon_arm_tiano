@@ -136,7 +136,7 @@
   ArmPkg/Drivers/CpuPei/CpuPei.inf
   ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   ArmPkg/Drivers/ArmGic/ArmGicLib.inf
-  ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
+  # ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf    # MU_CHANGE: Only build MP driver for AARCH64
   ArmPkg/Drivers/GenericWatchdogDxe/GenericWatchdogDxe.inf
   ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -174,7 +174,7 @@
   ArmPkg/Universal/Smbios/ProcessorSubClassDxe/ProcessorSubClassDxe.inf
   ArmPkg/Universal/Smbios/SmbiosMiscDxe/SmbiosMiscDxe.inf
   ArmPkg/Universal/Smbios/OemMiscLibNull/OemMiscLibNull.inf
-
+S
   # MU_CHANGE [BEGIN]
   ArmPkg/Drivers/StandaloneMmCpu/StandaloneMmCpu.inf
   ArmPkg/Library/StandaloneMmCoreEntryPoint/StandaloneMmCoreEntryPoint.inf
@@ -187,7 +187,6 @@
   ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
   ArmPkg/Drivers/MmCommunicationDxe/MmCommunication.inf
   ArmPkg/Library/ArmMmuLib/ArmMmuPeiLib.inf
-  ArmPkg/Application/ArmCpuInfo/ArmCpuInfo.inf
 
 [Components.AARCH64, Components.ARM]
   ArmPkg/Library/StandaloneMmMmuLib/ArmMmuStandaloneMmLib.inf
