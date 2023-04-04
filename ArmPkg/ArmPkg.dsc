@@ -92,6 +92,7 @@
   OemMiscLib|ArmPkg/Universal/Smbios/OemMiscLibNull/OemMiscLibNull.inf
 
   SafeIntLib|MdePkg/Library/BaseSafeIntLib/BaseSafeIntLib.inf   # MU_CHANGE
+  DxeMemoryProtectionHobLib|MdeModulePkg/Library/MemoryProtectionHobLibNull/DxeMemoryProtectionHobLibNull.inf # MU_CHANGE
 [LibraryClasses.common.PEIM]
   HobLib|MdePkg/Library/PeiHobLib/PeiHobLib.inf
   PeimEntryPoint|MdePkg/Library/PeimEntryPoint/PeimEntryPoint.inf
