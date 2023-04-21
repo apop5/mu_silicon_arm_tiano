@@ -173,6 +173,7 @@ SetGcdMemorySpaceAttributes (
       // If we fail to set capabilities, we should assert as this is a GCD internal error, but follow the previous
       // behavior and try to set the attributes (which may or may not fail)
       ASSERT_EFI_ERROR (Status);
+      continue; // MU_CHANGE
     }
 
     //
@@ -196,6 +197,7 @@ SetGcdMemorySpaceAttributes (
         ));
 
       ASSERT_EFI_ERROR (Status);
+      continue; // MU_CHANGE
     }
   }
 
