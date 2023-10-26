@@ -182,7 +182,6 @@
   ArmPkg/Drivers/SmmVariablePei/SmmVariablePei.inf
   # MU_CHANGE [END]
   ArmPkg/Drivers/MmCommunicationPei/MmCommunicationPei.inf
-  ArmPkg/Application/ArmCpuInfo/ArmCpuInfo.inf
 
 [Components.AARCH64]
   ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
