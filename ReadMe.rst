@@ -18,10 +18,10 @@ Branch Status - release/202308
   In Development
 
 :Entered Development:
-  May 2023
+  Oct 2023
 
 :Anticipated Stabilization:
-  Aug 2023
+  Feb 2024
 
 Branch Changes - release/202308
 ===============================
@@ -29,17 +29,21 @@ Branch Changes - release/202308
 Breaking Changes-dev
 --------------------
 
-- Incomplete
+- Moved to using generic function to update memory attributes
 
 Main Changes-dev
 ----------------
 
-- Incomplete
+- Moved to using generic function to update memory attributes
+- Introduced region types for RO/XP WB cached memory
+- Implemented the memory attributes ppi
 
 Bug Fixes-dev
 -------------
 
-- Incomplete
+- Fixed data type used for several Gic functions
+- Fixed ArmGicAcknowledgeInterrupt for GICv3
+
 
 2308_RefBoot Changes
 --------------------
