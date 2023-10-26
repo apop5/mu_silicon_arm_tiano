@@ -175,7 +175,6 @@
   ArmPkg/Universal/Smbios/ProcessorSubClassDxe/ProcessorSubClassDxe.inf
   ArmPkg/Universal/Smbios/SmbiosMiscDxe/SmbiosMiscDxe.inf
   ArmPkg/Universal/Smbios/OemMiscLibNull/OemMiscLibNull.inf
-S
   # MU_CHANGE [BEGIN]
   ArmPkg/Drivers/StandaloneMmCpu/StandaloneMmCpu.inf
   ArmPkg/Library/StandaloneMmCoreEntryPoint/StandaloneMmCoreEntryPoint.inf
@@ -183,6 +182,7 @@ S
   ArmPkg/Drivers/SmmVariablePei/SmmVariablePei.inf
   # MU_CHANGE [END]
   ArmPkg/Drivers/MmCommunicationPei/MmCommunicationPei.inf
+  ArmPkg/Application/ArmCpuInfo/ArmCpuInfo.inf
 
 [Components.AARCH64]
   ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
