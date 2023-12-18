@@ -186,7 +186,7 @@ GetNextEntryAttribute (
   MemorySpaceMap = NULL;
   Status         = gDS->GetMemorySpaceMap (&NumberOfDescriptors, &MemorySpaceMap);
   // MU_CHANGE [BEGIN]: Check if the memory space map is valid
-  if (EFI_ERROR (Status) || (TableLevel > 3) {
+  if (EFI_ERROR (Status) || (TableLevel > 3)) {
     // This function needs to define what is returned when an error occurs.
     // Callers need to actually check the return value and add error handling.
     ASSERT_EFI_ERROR (Status);
