@@ -296,6 +296,7 @@ InitializeDma (
   does not result in changes to memory permission attributes.
 
 **/
+/*
 STATIC
 VOID
 RemapUnusedMemoryNx (
@@ -363,7 +364,7 @@ RemapUnusedMemoryNx (
     MemoryMapEntry = NEXT_MEMORY_DESCRIPTOR (MemoryMapEntry, DescriptorSize);
   }
 }
-
+*/
 STATIC
 VOID
 EFIAPI
@@ -413,6 +414,10 @@ CpuDxeInitialize (
 
   InitializeDma (&mCpu);
 
+  // MU_CHANGE START: Initialize the page table memory pool
+  Status = InitializePageTableMemory (ImageHandle);
+  ASSERT_EFI_ERROR (Status);
+
   //
   // Once we install the CPU arch protocol, the DXE core's memory
   // protection routines will invoke them to manage the permissions of page
@@ -423,9 +428,10 @@ CpuDxeInitialize (
   // fact that updating permissions on a newly allocated page table may trigger
   // a block entry split, which triggers a page table allocation, etc etc
   //
-  if (FeaturePcdGet (PcdRemapUnusedMemoryNx)) {
-    RemapUnusedMemoryNx ();
-  }
+  //  if (FeaturePcdGet (PcdRemapUnusedMemoryNx)) {
+  //    RemapUnusedMemoryNx ();
+  //  }
+  // MU_CHANGE END
 
   CpuHandle = NULL;
 
@@ -433,8 +439,12 @@ CpuDxeInitialize (
                   &CpuHandle,
                   &gEfiCpuArchProtocolGuid,
                   &mCpu,
-                  //&gEfiMemoryAttributeProtocolGuid, // MU_CHANGE - Only install Memory Attributes on policy
-                  //&mMemoryAttribute, // MU_CHANGE - Only install Memory Attributes on policy
+                  // MU_CHANGE - Install page Table Memory allocaiton protocol
+                  &gArmPageTableMemoryAllocationProtocolGuid,
+                  &mPageTableMemAllocProtocol,
+                  // MU_CHANGE - Only install Memory Attributes on policy
+                  // &gEfiMemoryAttributeProtocolGuid,
+                  // &mMemoryAttribute,
                   NULL
                   );
   if (EFI_ERROR (Status)) {
