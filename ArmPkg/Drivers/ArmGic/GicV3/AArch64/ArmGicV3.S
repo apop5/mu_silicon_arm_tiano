@@ -22,7 +22,6 @@
 #define ICC_IAR1_EL1            S3_0_C12_C12_0
 #define ICC_PMR_EL1             S3_0_C4_C6_0
 #define ICC_BPR1_EL1            S3_0_C12_C12_3
-#define ICC_SGI1R_EL1           S3_0_C12_C11_5  // MU_CHANGE
 
 #endif
 
@@ -50,18 +49,6 @@ ASM_FUNC(ArmGicV3SetControlSystemRegisterEnable)
 2:  msr ICC_SRE_EL2, x0
 4:  isb
         ret
-
-// MU_CHANGE Starts: Add ArmGicV3SendNsG1Sgi, to allow sending SGI from one core to other cores on GICv3
-// VOID
-// ArmGicV3SendNsG1Sgi (
-//  IN UINT64          SgiVal
-//  );
-ASM_FUNC(ArmGicV3SendNsG1Sgi)
-        dsb     ishst
-        msr     ICC_SGI1R_EL1, x0
-        isb
-        ret
-// MU_CHANGE Ends
 
 //VOID
 //ArmGicV3EnableInterruptInterface (
