@@ -1,3 +1,0 @@
-[submodule "SoftFloat"]
-	path = ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3
-	url = https://github.com/ucb-bar/berkeley-softfloat-3.git
