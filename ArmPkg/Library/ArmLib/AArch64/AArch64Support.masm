@@ -13,8 +13,8 @@
 //
 //------------------------------------------------------------------------------
 
-#include <Chipset/AArch64.h>
-#include <AsmMacroIoLibV8.h>
+#include <AArch64/AArch64.h>
+#include <AsmMacroLib.h>
 
     AREA    |.text|,ALIGN=3,CODE,READONLY
 
