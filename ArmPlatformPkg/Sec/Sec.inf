@@ -53,6 +53,7 @@
   DebugLib
   PrintLib
   SerialPortLib
+  StackCheckLib
 
 [Ppis]
   gEfiTemporaryRamSupportPpiGuid
