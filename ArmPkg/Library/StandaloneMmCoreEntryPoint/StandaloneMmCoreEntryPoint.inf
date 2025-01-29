@@ -51,6 +51,7 @@
   ArmMmuLib
   # MU_CHANGE [END] - Nerf StandaloneMmMmuLib. It's just ArmMmuLib.
   ArmSvcLib
+  StackCheckLib
 
 [Guids]
   gMpInformationHobGuid
