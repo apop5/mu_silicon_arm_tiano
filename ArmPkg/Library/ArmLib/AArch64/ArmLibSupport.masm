@@ -14,7 +14,7 @@
 //
 //------------------------------------------------------------------------------
 
-#include <AsmMacroIoLibV8.h>
+#include <AsmMacroLib.h>
 
     AREA    |.text|,ALIGN=3,CODE,READONLY
 
@@ -193,6 +193,7 @@ ArmSetMAIR ENDP
 //  IN VOID  *MVA                    // X1
 //  );
 ArmUpdateTranslationTableEntry PROC
+   dc      civac, x0             // Clean and invalidate data line
    dsb     nshst
    lsr     x1, x1, #12
    EL1_OR_EL2_OR_EL3(x0)

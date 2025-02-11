@@ -763,7 +763,7 @@ DisassembleThumbInstruction (
           Target = OpCode32 & 0xfff;
           if ((OpCode32 & BIT23) == 0) {
             // U == 0 means subtrack, U == 1 means add
-            Target = -Target;
+            Target = -(INT32)Target;
           }
 
           AsciiSPrint (&Buf[Offset], Size - Offset, " %a, %a", gReg[(OpCode32 >> 12) & 0xf], PcAlign4 (Pc) + Target);
@@ -834,7 +834,7 @@ DisassembleThumbInstruction (
           Target = (OpCode32 & 0xff) << 2;
           if ((OpCode32 & BIT23) == 0) {
             // U == 0 means subtrack, U == 1 means add
-            Target = -Target;
+            Target = -(INT32)Target;
           }
 
           AsciiSPrint (&Buf[Offset], Size - Offset, " %a, %a, %a", gReg[Rt], gReg[Rt2], Pc + 4 + Target);

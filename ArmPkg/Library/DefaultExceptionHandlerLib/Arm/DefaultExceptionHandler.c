@@ -235,7 +235,7 @@ DefaultExceptionHandler (
   UINT32  Offset;
   CHAR8   CpsrStr[CPSR_STRING_SIZE];    // char per bit. Lower 5-bits are mode
                                         // that is a 3 char string
-  CHAR8   Buffer[80];
+  // CHAR8   Buffer[80]; MU_CHANGE
   UINT8   *DisAsm;
   UINT32  ItBlock;
 

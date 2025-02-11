@@ -2,6 +2,7 @@
 // Copyright (c) 2011 - 2014 ARM LTD. All rights reserved.<BR>
 // Portion of Copyright (c) 2014 NVIDIA Corporation. All rights reserved.<BR>
 // Copyright (c) 2016 HP Development Company, L.P.
+// Copyright (c) Microsoft Corporation.
 //
 // This program and the accompanying materials
 // are licensed and made available under the terms and conditions of the BSD License
@@ -13,9 +14,9 @@
 //
 //------------------------------------------------------------------------------
 
-#include <Chipset/AArch64.h>
+#include <AArch64/AArch64.h>
 #include <Library/PcdLib.h>
-#include <AsmMacroIoLibV8.h>
+#include <AsmMacroLib.h>
 #include <Protocol/DebugSupport.h> // for exception type definitions
 
     AREA    |.text|,ALIGN=7,CODE,READONLY
