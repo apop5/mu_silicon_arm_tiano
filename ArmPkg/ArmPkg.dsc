@@ -194,4 +194,3 @@
   ArmPkg/Library/StandaloneMmMmuLib/ArmMmuStandaloneMmLib.inf
   ArmPkg/Library/MmuLib/BaseMmuLib.inf    # MU_CHANGE - Add BaseMmuLib
   ArmPkg/Drivers/StandaloneMmCpu/StandaloneMmCpu.inf # MU_CHANGE - Add StandaloneMmCpu
-  ArmPkg/Library/StandaloneMmCoreEntryPoint/StandaloneMmCoreEntryPoint.inf # MU_CHANGE - Add StandaloneMmCoreEntryPoint
