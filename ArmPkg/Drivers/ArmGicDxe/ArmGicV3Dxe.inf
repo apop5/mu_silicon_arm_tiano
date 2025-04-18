@@ -21,9 +21,11 @@
   ArmGicDxe.c
   ArmGicDxe.h
   GicV3/ArmGicV3Dxe.c
-  GicV3/AArch64/ArmGicV3.S
+  GicV3/AArch64/ArmGicV3.S     | GCC
+  GicV3/AArch64/ArmGicV3.masm  | MSFT
+
   GicV5/ArmGicV5Dxe.c
-  GicV5/AArch64/ArmGicV5.S
+  GicV5/AArch64/ArmGicV5.S     | GCC
 
 [Packages]
   MdePkg/MdePkg.dec
