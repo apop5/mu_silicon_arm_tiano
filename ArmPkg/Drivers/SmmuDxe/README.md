@@ -131,7 +131,8 @@ Physical Page
 
 2. **SMMU Translation**:
    - Looks up Stream Table Entry (STE)
-   - Walks 4-level page tables
+      - 2 level or Linear Stream Table. Depending on configurable maximum StreamId via IORT.
+   - Walks up to 4-level page tables
    - Converts IOVA to PA (Physical Address)
 
 ## Memory Protection
@@ -213,9 +214,8 @@ Current implementation constraints:
 1. Fixed 4KB granule size
 2. 48-bit address space limit
 3. Stage 2 translation only
-   - Stage 2 is used on its own to simplify the translation process and use a linear stream table.
-4. Linear Stream Table
-5. Identity mapped page tables
+   - Stage 2 is used on its own to simplify the translation process.
+4. Identity mapped page tables
 
 ## Future Enhancements
 
@@ -223,9 +223,8 @@ Potential improvements:
 
 1. Multiple translation granule support
 2. Stage 1 & 2 translation
-3. 2-level Stream Tables
-4. Different page table mapping schemes
-5. Updated IoMmu Protocol to optimize redundencies
+3. Different page table mapping schemes
+4. Updated IoMmu Protocol to optimize redundencies
 
 ## Relevant Docs
 
